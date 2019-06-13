@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#git clone https://github.com/mnichols-github/NTI320final-spring.git
+#git clone https://github.com/mnichols-github/NTI310final.git
 
 #1. rsyslog
 gcloud compute instances create rsyslog-server-final \
