@@ -1,9 +1,9 @@
 #!/bin/bash
 
-git clone https://github.com/mnichols-github/nti320final-spring.git
+#git clone https://github.com/mnichols-github/nti320final-spring.git
 
-echo "SET PROJECT"
-gcloud config set project nti-320-networkmonitoring
+#echo "SET PROJECT"
+#gcloud config set project nti-320-networkmonitoring
 
 #rsyslog
 gcloud compute instances create rsyslog-server-final \
