@@ -24,7 +24,7 @@ django-admin.py startproject myproject .
 python manage.py makemigrations
 python manage.py migrate
 
-wget -O /myproject/myproject/settings.py https://raw.githubusercontent.com/mnichols-github/NTI310final/master/settings.py
+wget -O /myproject/myproject/settings.py https://raw.githubusercontent.com/mnichols-github/nti320final-spring/master/settings.py
 
 #install, config  rsyslog client ##add to botom of every server script 
 sudo yum -y update && yum -y install rsyslog
