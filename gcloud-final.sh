@@ -9,7 +9,7 @@ gcloud config set project nti-320-networkmonitoring
 gcloud compute instances create rsyslog-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
---zone us-east1-b \
+--zone us-west1-b \
 --private-network-ip=10.138.0.204 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
@@ -64,7 +64,7 @@ gcloud compute instances cacti-server-final \
 gcloud compute instances create ldap-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
---zone us-east1-b \
+--zone us-west1-b \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -74,7 +74,7 @@ gcloud compute instances create ldap-server-final \
 gcloud compute instances create nfs-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
---zone us-east1-b \
+--zone us-west1-b \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -84,7 +84,7 @@ gcloud compute instances create nfs-server-final \
  gcloud compute instances create postgres-server-front-final \
 --image-family centos-7 \
 --image-project centos-cloud \
---zone us-east1-b \
+--zone us-west1-b \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -94,7 +94,7 @@ gcloud compute instances create nfs-server-final \
 gcloud compute instances create postgres-server-back-final \
 --image-family centos-7 \
 --image-project centos-cloud \
---zone us-east1-b \
+--zone us-west1-b \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -104,7 +104,7 @@ gcloud compute instances create postgres-server-back-final \
 gcloud compute instances create ldap-nfs-client-01 \
 --image-family ubuntu-1804-lts \
 --image-project ubuntu-os-cloud \
---zone us-east1-b \
+--zone us-west1-b \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -114,7 +114,7 @@ gcloud compute instances create ldap-nfs-client-01 \
 gcloud compute instances create ldap-nfs-client-02 \
 --image-family ubuntu-1804-lts \
 --image-project ubuntu-os-cloud \
---zone us-east1-b \
+--zone us-west1-b \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
