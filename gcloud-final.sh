@@ -88,7 +88,7 @@ gcloud compute instances create nfs-server-final \
 sleep 30s
 
 #postgres front
- gcloud compute instances create postgres-server-front-final \
+gcloud compute instances create postgres-server-front-final \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-west1-b \
@@ -96,7 +96,7 @@ sleep 30s
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nti320final-spring/postgres-server-front-final.sh
- sleep 30s
+sleep 30s
      
 #postgress back
 gcloud compute instances create postgres-server-back-final \
