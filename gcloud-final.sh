@@ -15,6 +15,7 @@ gcloud compute instances create rsyslog-server-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nti320final-spring/rsyslog-server-final.sh
+sleep 30s
 
 #repo
 gcloud compute instances create repo-server-final \
@@ -26,6 +27,7 @@ gcloud compute instances create repo-server-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/nti320final-spring/repo-server-final.sh
+sleep 30s
 
 #rpm
 gcloud compute instances rpm-build-server-final \
@@ -37,6 +39,7 @@ gcloud compute instances rpm-build-server-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/nti320final-spring/rpm-build-server-final.sh
+sleep 30s
 
 #nagios
 gcloud compute instances nagios-server-final \
@@ -48,6 +51,7 @@ gcloud compute instances nagios-server-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/nti320final-spring/nagios-server-final.sh
+sleep 30s
 
 #cacti
 gcloud compute instances cacti-server-final \
@@ -59,6 +63,7 @@ gcloud compute instances cacti-server-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=/nti320final-spring/cacti-server-final.sh
+sleep 30s
 
 #ldap
 gcloud compute instances create ldap-server-final \
@@ -69,6 +74,7 @@ gcloud compute instances create ldap-server-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nti320final-spring/ldap-server-final.sh
+sleep 30s
 
 #nfs
 gcloud compute instances create nfs-server-final \
@@ -79,6 +85,7 @@ gcloud compute instances create nfs-server-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nti320final-spring/nfs-server-final.sh
+sleep 30s
 
 #postgres front
  gcloud compute instances create postgres-server-front-final \
@@ -89,7 +96,8 @@ gcloud compute instances create nfs-server-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nti320final-spring/postgres-server-front-final.sh
-      
+ sleep 30s
+     
 #postgress back
 gcloud compute instances create postgres-server-back-final \
 --image-family centos-7 \
@@ -99,6 +107,7 @@ gcloud compute instances create postgres-server-back-final \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nti320final-spring/postgres-server-back-final.sh
+sleep 30s
       
 #ldap-nfs client - 1 
 gcloud compute instances create ldap-nfs-client-01 \
@@ -109,6 +118,7 @@ gcloud compute instances create ldap-nfs-client-01 \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nti320final-spring/ldap-nfs-client.sh    
+sleep 30s
 
 #ldap-nfs client- 2
 gcloud compute instances create ldap-nfs-client-02 \
@@ -119,8 +129,11 @@ gcloud compute instances create ldap-nfs-client-02 \
 --machine-type f1-micro \
 --scopes cloud-platform \
 --metadata-from-file startup-script=nti320final-spring/ldap-nfs-client.sh
+sleep 30s
 
 bash /nti320final-spring/for_loop.sh
+sleep 30s
 
 bash /nti320final-spring/for_loop_for_nrpe.sh
+sleep 30s
 
