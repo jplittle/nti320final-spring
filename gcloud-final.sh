@@ -1,18 +1,66 @@
 #!/bin/bash
 
-#git clone https://github.com/mnichols-github/NTI310final.git
+git clone https://github.com/mnichols-github/nti320final-spring.git
 
-#1. rsyslog
+echo "SET PROJECT"
+gcloud config set project nti-320-networkmonitoring
+
+#rsyslog
 gcloud compute instances create rsyslog-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-east1-b \
+--private-network-ip=10.138.0.204 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=NTI310final/rsyslog-server-final.sh
+--metadata-from-file startup-script=nti320final-spring/rsyslog-server-final.sh
 
-#2 ldap
+#repo
+gcloud compute instances create repo-server-final \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-west1-b \
+--private-network-ip=10.138.0.200 \
+--tags "http-server","https-server" \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/nti320final-spring/repo-server-final.sh
+
+#rpm
+gcloud compute instances rpm-build-server-final \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-west1-b \
+--private-network-ip=10.138.0.201 \
+--tags "http-server","https-server" \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/nti320final-spring/rpm-build-server-final.sh
+
+#nagios
+gcloud compute instances nagios-server-final \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-west1-b \
+--private-network-ip=10.138.0.202 \
+--tags "http-server","https-server" \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/nti320final-spring/nagios-server-final.sh
+
+#cacti
+gcloud compute instances cacti-server-final \
+--image-family centos-7 \
+--image-project centos-cloud \
+--zone us-west1-b \
+--private-network-ip=10.138.0.203 \
+--tags "http-server","https-server" \
+--machine-type f1-micro \
+--scopes cloud-platform \
+--metadata-from-file startup-script=/nti320final-spring/cacti-server-final.sh
+
+#ldap
 gcloud compute instances create ldap-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
@@ -20,9 +68,9 @@ gcloud compute instances create ldap-server-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=NTI310final/ldap-server-final.sh
+--metadata-from-file startup-script=nti320final-spring/ldap-server-final.sh
 
-#3 #nfs
+#nfs
 gcloud compute instances create nfs-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
@@ -30,9 +78,9 @@ gcloud compute instances create nfs-server-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=NTI310final/nfs-server-final.sh
+--metadata-from-file startup-script=nti320final-spring/nfs-server-final.sh
 
-#4 postgres front
+#postgres front
  gcloud compute instances create postgres-server-front-final \
 --image-family centos-7 \
 --image-project centos-cloud \
@@ -40,9 +88,9 @@ gcloud compute instances create nfs-server-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=NTI310final/postgres-server-front-final.sh
+--metadata-from-file startup-script=nti320final-spring/postgres-server-front-final.sh
       
-#5 postgress back
+#postgress back
 gcloud compute instances create postgres-server-back-final \
 --image-family centos-7 \
 --image-project centos-cloud \
@@ -50,9 +98,9 @@ gcloud compute instances create postgres-server-back-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=NTI310final/postgres-server-back-final.sh
+--metadata-from-file startup-script=nti320final-spring/postgres-server-back-final.sh
       
-#6 ldap-nfs client - 1 
+#ldap-nfs client - 1 
 gcloud compute instances create ldap-nfs-client-01 \
 --image-family ubuntu-1804-lts \
 --image-project ubuntu-os-cloud \
@@ -60,9 +108,9 @@ gcloud compute instances create ldap-nfs-client-01 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=NTI310final/ldap-nfs-client.sh    
+--metadata-from-file startup-script=nti320final-spring/ldap-nfs-client.sh    
 
-#7 ldap-nfs client- 2
+#ldap-nfs client- 2
 gcloud compute instances create ldap-nfs-client-02 \
 --image-family ubuntu-1804-lts \
 --image-project ubuntu-os-cloud \
@@ -70,4 +118,9 @@ gcloud compute instances create ldap-nfs-client-02 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=NTI310final/ldap-nfs-client.sh
+--metadata-from-file startup-script=nti320final-spring/ldap-nfs-client.sh
+
+bash /nti320final-spring/for_loop.sh
+
+bash /nti320final-spring/for_loop_for_nrpe.sh
+
