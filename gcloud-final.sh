@@ -26,7 +26,7 @@ gcloud compute instances create repo-server-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/nti320final-spring/repo-server-final.sh
+--metadata-from-file startup-script=nti320final-spring/repo-server-final.sh
 sleep 30s
 
 #rpm
@@ -38,7 +38,7 @@ gcloud compute instances rpm-build-server-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/nti320final-spring/rpm-build-server-final.sh
+--metadata-from-file startup-script=nti320final-spring/rpm-build-server-final.sh
 sleep 30s
 
 #nagios
@@ -50,7 +50,7 @@ gcloud compute instances nagios-server-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/nti320final-spring/nagios-server-final.sh
+--metadata-from-file startup-script=nti320final-spring/nagios-server-final.sh
 sleep 30s
 
 #cacti
@@ -62,7 +62,7 @@ gcloud compute instances cacti-server-final \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
---metadata-from-file startup-script=/nti320final-spring/cacti-server-final.sh
+--metadata-from-file startup-script=nti320final-spring/cacti-server-final.sh
 sleep 30s
 
 #ldap
