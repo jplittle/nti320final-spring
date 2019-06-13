@@ -1,12 +1,10 @@
 #!/bin/bash
 
-# https://exchange.nagios.org/directory/Plugins/Network-Protocols/LDAP/check_ldaps_cert_expiry-2Esh/details
-
 EXPECTED_ARGS=3
 
 if [ $# -ne $EXPECTED_ARGS ]
 then
-    echo "Usage :`basename $0` <host> <warn days> <critical days> (`basename $0` ldap-server-final 90 30)"
+    echo "Usage :`basename $0` <host> <warn days> <critical days> (`basename $0` ldapserver1 90 30)"
     exit 1
 fi
 
