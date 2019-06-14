@@ -3,9 +3,9 @@
 yum -y install rpm-build make gcc git                                         
 
 mkdir -p /root/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}                      
- 
-                                                                              
+                                                                            
 cd ~/
+
 echo '%_topdir %(echo $HOME)/rpmbuild' > ~/.rpmmacros                         
 
 cd ~/rpmbuild/SOURCES

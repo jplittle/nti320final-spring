@@ -10,7 +10,7 @@ gcloud compute instances create rsyslog-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-west1-b \
---private-network-ip=10.138.0.204 \
+#--private-network-ip=10.138.0.204 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -22,7 +22,7 @@ gcloud compute instances create repo-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-west1-b \
---private-network-ip=10.138.0.200 \
+#--private-network-ip=10.138.0.200 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -34,7 +34,7 @@ gcloud compute instances rpm-build-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-west1-b \
---private-network-ip=10.138.0.201 \
+#--private-network-ip=10.138.0.201 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -46,7 +46,7 @@ gcloud compute instances nagios-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-west1-b \
---private-network-ip=10.138.0.202 \
+#--private-network-ip=10.138.0.202 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
@@ -58,7 +58,7 @@ gcloud compute instances cacti-server-final \
 --image-family centos-7 \
 --image-project centos-cloud \
 --zone us-west1-b \
---private-network-ip=10.138.0.203 \
+#--private-network-ip=10.138.0.203 \
 --tags "http-server","https-server" \
 --machine-type f1-micro \
 --scopes cloud-platform \
